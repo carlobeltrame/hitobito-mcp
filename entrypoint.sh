@@ -1,0 +1,1 @@
+node node_modules/.bin/specbridge --transport httpStream --port 8080 $@
