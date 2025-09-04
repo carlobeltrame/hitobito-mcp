@@ -2,6 +2,7 @@ FROM node:lts-alpine
 WORKDIR /app
 
 EXPOSE 8080
+ENV FASTMCP_HOST=0.0.0.0
 
 # Install curl
 RUN apk --no-cache add curl
@@ -11,8 +12,7 @@ COPY package.json package-lock.json ./
 RUN npm install
 
 # Copy openapi spec
+COPY . ./
 RUN curl -vvv https://pbs.puzzle.ch/api/openapi.yaml > hitobito.yml
-
-COPY entrypoint.sh /app/entrypoint.sh
 
 ENTRYPOINT ["/bin/sh", "-c", "/app/entrypoint.sh"]

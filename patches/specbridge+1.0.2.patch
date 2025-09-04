@@ -1,0 +1,13 @@
+diff --git a/node_modules/specbridge/dist/utils/auth.js b/node_modules/specbridge/dist/utils/auth.js
+index 5c10f27..31eb83e 100644
+--- a/node_modules/specbridge/dist/utils/auth.js
++++ b/node_modules/specbridge/dist/utils/auth.js
+@@ -65,7 +65,7 @@ function loadAuthConfig(specsPath) {
+             authConfig[apiName][configKey] = value;
+             // Set default header name for API keys
+             if (authType === 'apiKey' && !authConfig[apiName].headerName) {
+-                authConfig[apiName].headerName = 'X-API-Key';
++                authConfig[apiName].headerName = 'X-TOKEN';
+             }
+         }
+     }
