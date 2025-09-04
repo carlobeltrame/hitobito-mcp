@@ -14,5 +14,7 @@ RUN npm install
 # Copy openapi spec
 COPY . ./
 RUN curl -vvv https://pbs.puzzle.ch/api/openapi.yaml > hitobito.yml
+RUN touch .env
+RUN chmod a+w .env
 
 ENTRYPOINT ["/bin/sh", "-c", "/app/entrypoint.sh"]
