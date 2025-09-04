@@ -11,3 +11,16 @@ index 5c10f27..31eb83e 100644
              }
          }
      }
+diff --git a/node_modules/specbridge/dist/utils/openapi-parser.js b/node_modules/specbridge/dist/utils/openapi-parser.js
+index 448ff6f..e02027c 100644
+--- a/node_modules/specbridge/dist/utils/openapi-parser.js
++++ b/node_modules/specbridge/dist/utils/openapi-parser.js
+@@ -107,7 +107,7 @@ function extractParameters(paramRefs) {
+         const param = paramRef;
+         if (param.in && param.name && param.schema) {
+             parameters.push({
+-                name: param.name,
++                name: param.name.replaceAll('][', '.').replaceAll('[', '.').replaceAll(']', ''),
+                 in: param.in,
+                 required: param.required || param.in === 'path',
+                 schema: param.schema,
